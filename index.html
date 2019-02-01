@@ -59,9 +59,40 @@ function goCoordenada(){
    var circle1 = L.circle([ny,nx], 200);
    circle1.addTo(mapas);
 };  
-  
+
+function initmapas(){
+
+    mapas = new L.map('mapas',{zoomSnap: 0.125,zoomControl: true }).setView(new L.LatLng(19.353890, -99.138817),9.8);
+    mapas.scrollWheelZoom.disable(); // sin mouse o pad wheel zoom
+    //mapas.dragging.disable(); // sin drah event
+    mapas.touchZoom.disable(); 
+    mapas.doubleClickZoom.disable();
+    mapas.scrollWheelZoom.disable(); // sin mouse o pad wheel zoom
+
+	var orl= L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
+	maxZoom: 20//,
+		//attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	});
+
+	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+	var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 20, attribution: osmAttrib});
+	OpenStreetMap_France = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+		maxZoom: 20,
+		attribution: '&copy; Openstreetmap France | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	});
+
+	mapas.addLayer(OpenStreetMap_France);
+	//L.control.zoom().addTo(mapMunicipioREG)
+}	
+	
+	
+	
   
 </script>
-
+<script>
+	initmapas()
+</script>	
+	
 </body>
 </html>
