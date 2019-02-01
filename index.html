@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html>
+  
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.1/math.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+  </head> 
+  
 <body>
 
 <p>Click the button to get your coordinates.</p>
@@ -8,9 +23,12 @@
 
 <p id="demo"></p>
 
+<div id ="mapas" style="height: 400px; width: 600px;">  
+  
 <script>
 var x = document.getElementById("demo");
-
+var ny=0;
+var nx =0;
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -22,7 +40,29 @@ function getLocation() {
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
+  nx=position.coords.longitude;
+  ny=position.coords.latitude
+  goCoordenada();
 }
+  
+  
+
+function goCoordenada(){
+	var salida = "nada";
+  var zoomp = 17;
+  mapas.flyTo(new L.LatLng(ny, nx), zoomp);
+  visibleEast = mapas.getBounds().getEast()
+  visibleWest = mapas.getBounds().getWest()
+  visibleNorth = mapas.getBounds().getNorth()
+  visibleSouth = mapas.getBounds().getSouth()
+  if(mapas.hasLayer(circle1)){
+         mapas.removeLayer(circle1);
+    };
+   var circle1 = L.circle([ny,nx], 200);
+   circle1.addTo(mapas);
+};  
+  
+  
 </script>
 
 </body>
