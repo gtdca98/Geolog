@@ -55,7 +55,13 @@ function goCoordenada(){
   if(mapas.hasLayer(circle1)){
          mapas.removeLayer(circle1);
     };
-   var circle1 = L.circle([ny,nx], 50);
+   var circle1 =L.circle([ny,nx], {
+    color: 'blue',
+    fillColor: '#2222ff',
+    fillOpacity: 0.05,
+    radius: 10,
+    width: 1
+});
    circle1.addTo(mapas);
   if(mapas.hasLayer(circle2)){
          mapas.removeLayer(circle2);
@@ -63,8 +69,9 @@ function goCoordenada(){
    var circle2 = L.circle([ny,nx], {
     color: 'green',
     fillColor: '#f03',
-    fillOpacity: 1,
-    radius: 5
+    fillOpacity: 0.3,
+    radius: 3,
+    width: 2
 });
    circle2.addTo(mapas);	
 };  
