@@ -45,7 +45,7 @@ function goCoordenada(){
 	var salida = "nada";
   var zoomp = 17;
   //mapas.flyTo(new L.LatLng(ny, nx), zoomp);
-  mapas.panTo(new L.LatLng(ny, nx));
+  mapas.panTo(L.LatLng(ny, nx));
   visibleEast = mapas.getBounds().getEast()
   visibleWest = mapas.getBounds().getWest()
   visibleNorth = mapas.getBounds().getNorth()
