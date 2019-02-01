@@ -54,6 +54,11 @@ function goCoordenada(){
     };
    var circle1 = L.circle([ny,nx], 200);
    circle1.addTo(mapas);
+  if(mapas.hasLayer(circle2)){
+         mapas.removeLayer(circle2);
+    };
+   var circle2 = L.circle([ny,nx], 20);
+   circle1.addTo(mapas);	
 };  
 
 function initmapas(){
