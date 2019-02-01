@@ -56,13 +56,13 @@ function goCoordenada(){
    //var circle1 = L.circle([ny,nx], 50);
    //circle1.addTo(mapas);
   if(mapas.hasLayer(circle2)){
-     //    mapas.removeLayer(circle2);
+         mapas.removeLayer(circle2);
     };
    var circle2 = L.circle([ny,nx], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
-    radius: 3
+    radius: 5
 });
    circle2.addTo(mapas);	
 };  
