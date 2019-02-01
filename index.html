@@ -50,21 +50,21 @@ function goCoordenada(){
   visibleWest = mapas.getBounds().getWest()
   visibleNorth = mapas.getBounds().getNorth()
   visibleSouth = mapas.getBounds().getSouth()
-  //if(mapas.hasLayer(circle1)){
-        // mapas.removeLayer(circle1);
-  //  };
-   //var circle1 = L.circle([ny,nx], 50);
-   //circle1.addTo(mapas);
   if(mapas.hasLayer(circle1)){
          mapas.removeLayer(circle1);
     };
-   var circle1 = L.circle([ny,nx], {
+   var circle1 = L.circle([ny,nx], 50);
+   circle1.addTo(mapas);
+  if(mapas.hasLayer(circle2)){
+         mapas.removeLayer(circle2);
+    };
+   var circle2 = L.circle([ny,nx], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 1,
-    radius: 10
+    radius: 5
 });
-   circle1.addTo(mapas);	
+   circle2.addTo(mapas);	
 };  
 
 function initmapas(){
