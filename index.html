@@ -44,7 +44,8 @@ function showPosition(position) {
 function goCoordenada(){
 	var salida = "nada";
   var zoomp = 17;
-  mapas.flyTo(new L.LatLng(ny, nx), zoomp);
+  //mapas.flyTo(new L.LatLng(ny, nx), zoomp);
+  mapas.panTo(new L.LatLng(ny, nx));
   visibleEast = mapas.getBounds().getEast()
   visibleWest = mapas.getBounds().getWest()
   visibleNorth = mapas.getBounds().getNorth()
@@ -52,7 +53,7 @@ function goCoordenada(){
   if(mapas.hasLayer(circle1)){
          mapas.removeLayer(circle1);
     };
-   var circle1 = L.circle([ny,nx], 100);
+   var circle1 = L.circle([ny,nx], 50);
    circle1.addTo(mapas);
   if(mapas.hasLayer(circle2)){
          mapas.removeLayer(circle2);
@@ -68,7 +69,7 @@ function goCoordenada(){
 
 function initmapas(){
 
-    mapas = new L.map('mapas',{zoomSnap: 0.125,zoomControl: true }).setView(new L.LatLng(19.353890, -99.138817),9.8);
+    mapas = new L.map('mapas',{zoomSnap: 0.125,zoomControl: true }).setView(new L.LatLng(19.353890, -99.138817),18);
     mapas.scrollWheelZoom.disable(); // sin mouse o pad wheel zoom
     //mapas.dragging.disable(); // sin drah event
     mapas.touchZoom.disable(); 
@@ -93,7 +94,7 @@ function initmapas(){
 }	
 	
 	
-	setInterval(function(){ getLocation(); }, 20000);
+	setInterval(function(){ getLocation(); }, 3000);
   
 </script>
 <script>
