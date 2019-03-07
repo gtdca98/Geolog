@@ -123,7 +123,7 @@ function parseQueryString(input){
     }
     return out;
 }
-     var _url = window.location.search;
+     var _url =document.URL;	
      alert(_url);
      var queryData = parseQueryString(_url.toString());
      var p = queryData['a'];
