@@ -109,6 +109,30 @@ function initmapas(){
 <script>
 	initmapas()
 </script>	
+
+<script type="text/javascript">
+function parseQueryString(input){
+    var out={}, decode=decodeURIComponent, s=input||location.search||"",
+        kv=("?"===s.charAt(0)?s.slice(1):s).replace(/\+/g," ").split(/[&;]/g),
+        idx=-1,key,value;
+    while(++idx<kv.length){
+        if (kv[idx]==="") continue;
+        value=kv[idx].split("=");
+        key=decode(value.shift());
+        (out[key]||(out[key]=[])).push(decode(value.join("=")));
+    }
+    return out;
+}
+     var _url = window.location.search;
+     alert(_url);
+     var queryData = parseQueryString(_url.toString());
+     var p = queryData['a'];
+     alert(p);
+     var q = queryData['b'];
+     alert(q);
+
+</script>
+	
 	
 </body>
 </html>
