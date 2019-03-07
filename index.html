@@ -13,6 +13,9 @@
   
 <body>
 
+	<div id="container" style:"height: 100px;width:300px;"  >
+		
+	</div>	
 <p>Coordenadas?</p>
 
 <button onclick="getLocation()">Coordenadas</button>
@@ -133,6 +136,8 @@ function parseQueryString(input){
 
      var x = document.URL;	
      alert(x);
+     $("#container").append( "<h1>"+x+"</h1>" );
+
 </script>
 	
 	
