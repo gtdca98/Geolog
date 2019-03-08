@@ -127,16 +127,18 @@ function parseQueryString(input){
     return out;
 }
      var _url =document.URL;	
-     alert("URL "+ _url);
+     //alert("URL "+ _url);
      var queryData = parseQueryString(_url.toString());
      var p = queryData['a'];
-     alert(p);
+     //alert(p);
      var q = queryData['b'];
-     alert(q);
+     //alert(q);
 
      var x = document.URL;	
-     alert(x);
+     //alert(x);
+     $("#container").empty()
      $("#container").append( "<h1>"+x+"</h1>" );
+     	
      $("#container").append( "<h3>a vale "+p+" y b es igual a  "+q+"</h3>" );
 
 </script>
